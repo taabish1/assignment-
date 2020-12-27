@@ -85,8 +85,12 @@
                 </div>
 
                 <div class="links">
+                    @auth
+                    <a href="{{ route('dashboard') }}">Dashboard</a>
+                    @else
                     <a href="{{ route('login') }}">Login as Teacher</a>
                     <a href="{{ route('login.student') }}">Login as Student</a>
+                    @endauth
                     {{-- <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>
                     <a href="https://nova.laravel.com">Nova</a>

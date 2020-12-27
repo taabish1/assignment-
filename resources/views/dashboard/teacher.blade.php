@@ -25,23 +25,40 @@
                         <tbody>
                           <tr>
                             <th scope="row">1</th>
-                            <td>Students List</td>
+                            <td>Students</td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i> View</a>    
+                                <a class="btn btn-sm btn-primary" href="{{ route('student.list')}}"><i class="far fa-edit"></i> List</a>
+                                <a class="btn btn-sm btn-success" href="{{ route('student.create') }}"><i class="far fa-edit"></i> Create</a>    
                             </td>
                           </tr>
                           <tr>
                             <th scope="row">2</th>
-                            <td>Create Student</td>
+                            <td>Questions</td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i> Create</a>    
+                                {{-- <a class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i> List</a> --}}
+                                <a class="btn btn-sm btn-success" href="{{ route('question.create') }}"><i class="far fa-edit"></i> Create</a>    
                             </td>
                           </tr>
                           <tr>
                             <th scope="row">3</th>
-                            <td>List Exams</td>
+                            <td>Exams</td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i> View</a>    
+                                <a class="btn btn-sm btn-primary" href="{{ route('exam.list') }}"><i class="far fa-edit"></i> List</a>
+                                <a class="btn btn-sm btn-success" href="{{ route('exam.create') }}"><i class="far fa-edit"></i> Create</a>    
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">4</th>
+                            <td>Assign Exams</td>
+                            <td>
+                                <a class="btn btn-sm btn-primary" href="{{ route('exam.assign') }}"><i class="far fa-edit"></i> Go</a>    
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">5</th>
+                            <td>View Results</td>
+                            <td>
+                                <a class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i> Go</a>    
                             </td>
                           </tr>
                         </tbody>
