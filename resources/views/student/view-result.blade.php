@@ -18,26 +18,20 @@
                         <thead>
                           <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">List Name</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col">Exam</th>
+                            <th scope="col">Obt Marks</th>
+                            <th scope="col">Total Marks</th>
                           </tr>
                         </thead>
                         <tbody>
+                        @foreach($results as $result)
                           <tr>
-                            <th scope="row">1</th>
-                            <td>Exams</td>
-                            <td>
-                                <a class="btn btn-sm btn-primary" href="{{ route('exam.list')}}"><i class="far fa-edit"></i> List</a>    
-                            </td>
+                            <th scope="row">{{ $result->id }}</th>
+                            <td>{{ $result->exam->title }}</td>
+                            <td>{{ $result->obtained_marks }}</td>
+                            <td>{{ $result->total_marks }}</td>
                           </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Results</td>
-                            <td>
-                                {{-- <a class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i> List</a> --}}
-                                <a class="btn btn-sm btn-success" href="{{ route('result.list') }}"><i class="far fa-edit"></i> View</a>    
-                            </td>
-                          </tr>
+                        @endforeach
                         </tbody>
                       </table>
                 </div>

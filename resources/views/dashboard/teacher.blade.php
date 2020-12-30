@@ -58,7 +58,7 @@
                             <th scope="row">5</th>
                             <td>View Results</td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i> Go</a>    
+                                <a class="btn btn-sm btn-primary" href="{{ route('results.list') }}"><i class="far fa-edit"></i> Go</a>    
                             </td>
                           </tr>
                         </tbody>

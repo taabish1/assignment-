@@ -32,4 +32,29 @@ $(document).ready(function() {
         //console.log(stringVal);
         $('#assign_form').submit();
     });
+
+    $('#answer_submit').on('click', function(e) {
+
+      e.preventDefault();
+
+      var answersArray = [],
+          answers = $('.selected_answer');
+
+      $('.question_id').each( function(key, value){
+
+        var perAnswerArray = [];
+
+        perAnswerArray.push({'question_id' : value.value});
+        perAnswerArray.push({'answer' : answers[key].value});
+
+        answersArray.push(perAnswerArray);
+
+      });
+
+      var stringVal = JSON.stringify(answersArray);
+
+      $('#all_answers').val(stringVal);
+
+      $('#answer_form').submit();
+    })
 });

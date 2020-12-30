@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Question;
 use App\Exam;
+use App\ObtainedMark;
 use Illuminate\Support\Facades\Hash;
 
 class TeacherController extends Controller
@@ -172,5 +173,12 @@ class TeacherController extends Controller
     	$exam->students()->sync($userIds);
 
     	return redirect()->route('dashboard');
+    }
+
+    public function resultsList() {
+
+    	$results = ObtainedMark::with(['exam', 'user'])->get();
+
+    	return view('result.view')->with(compact(['results']));
     }
 }

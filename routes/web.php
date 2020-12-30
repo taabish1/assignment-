@@ -42,6 +42,15 @@ Route::middleware(['auth', 'auth.teacher'])->group(function () {
     Route::get('/exam/list', 'TeacherController@listExam')->name('exam.list');
     Route::get('/exam/assign', 'TeacherController@assignExam')->name('exam.assign');
     Route::post('/assign/exam', 'TeacherController@examAssign')->name('assign.exam');
+    Route::get('/results/list', 'TeacherController@resultsList')->name('results.list');
+});
+
+Route::middleware(['auth', 'auth.student'])->group(function () {
+
+	Route::get('exams/list', 'StudentController@listExam')->name('exam.list');
+	Route::get('/appear/exam/{id}', 'StudentController@appearExam')->name('exam.appear');
+	Route::post('/answer/submit/{id}', 'StudentController@answerSubmit')->name('answer.submit');
+	Route::get('/result/list', 'StudentController@listResult')->name('result.list');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

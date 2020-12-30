@@ -18,7 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @if(\Route::currentRouteName() == 'exam.create' || \Route::currentRouteName() == 'exam.assign')
+    @if(
+        \Route::currentRouteName() == 'exam.create' || 
+        \Route::currentRouteName() == 'exam.assign' ||
+        \Route::currentRouteName() == 'exam.appear' 
+        )
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/custom.js') }}" defer></script>
     @endif
