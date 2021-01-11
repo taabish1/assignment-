@@ -76,12 +76,36 @@ class TeacherController extends Controller
 
     public function questionCreate() {
 
-    	return view('teacher.question-create');
+    	return view('teacher.multiple-questions-create');
     }
 
     public function saveQuestion(Request $request) {
 
-		$request->validate([
+        $data = json_decode($request->data);
+
+        foreach ($data as $key => $value) {
+            
+
+            try {
+
+                $question                 = new Question;
+                $question->question       = $value->question;
+                $question->option_1       = $value->option_1;
+                $question->option_2       = $value->option_2;
+                $question->option_3       = $value->option_3;
+                $question->option_4       = $value->option_4;
+                $question->correct_answer = $value->answer;
+
+                $question->save();
+                
+            } catch (\Exception $e) {
+                
+                $e->getMessage();
+            }
+
+        }
+
+		/*$request->validate([
     		'question'       => 'required',
     		'option_1'       => 'required',
     		'option_2'       => 'required',
@@ -89,25 +113,7 @@ class TeacherController extends Controller
     		'option_4'       => 'required',
     		'correct_answer' => 'required',
     		'marks'          => 'required'
-    	]);   
-
-    	try {
-
-    		$question                 = new Question;
-	    	$question->question       = $request->question;
-	    	$question->option_1       = $request->option_1;
-	    	$question->option_2       = $request->option_2;
-	    	$question->option_3       = $request->option_3;
-	    	$question->option_4       = $request->option_4;
-	    	$question->correct_answer = $request->correct_answer;
-	    	$question->marks          = $request->marks; 
-
-	    	$question->save();
-    		
-    	} catch (\Exception $e) {
-    		
-    		$e->getMessage();
-    	}
+    	]); */  
 
     	return redirect()->route('question.create');	
     }

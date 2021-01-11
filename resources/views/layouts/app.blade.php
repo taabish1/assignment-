@@ -21,7 +21,8 @@
     @if(
         \Route::currentRouteName() == 'exam.create' || 
         \Route::currentRouteName() == 'exam.assign' ||
-        \Route::currentRouteName() == 'exam.appear' 
+        \Route::currentRouteName() == 'exam.appear' ||
+        \Route::currentRouteName() == 'question.create'
         )
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/custom.js') }}" defer></script>
